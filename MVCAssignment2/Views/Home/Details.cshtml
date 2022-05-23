@@ -37,6 +37,7 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Delete", "Delete", Model) |
-    <a asp-action="Index">Back to List</a>
+    @Html.ActionLink("Delete", "Delete", Model) 
+
+    <a asp-action="@ViewData["ReturnLink"]">Back to List</a>
 </div>

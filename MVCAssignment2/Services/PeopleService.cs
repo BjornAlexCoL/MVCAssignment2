@@ -11,6 +11,7 @@ namespace MVCAssignment2.Services
 
     {
         static InMemoryPeopleRepo inMemoryPeopleRepo=  new InMemoryPeopleRepo();
+
         public Person Add(CreatePersonViewModel person)
         {
             return inMemoryPeopleRepo.Create(new Person() { Name = person.Name, Phone = person.Phone, City = person.City }) ;

@@ -9,9 +9,19 @@ namespace MVCAssignment2.Services
 {
     public class InMemoryPeopleRepo : IPeopleRepo
     {
-        private static List<Person> people=new List<Person>();
+        private static List<Person> people = new List<Person>();
         private static int idCounter;
 
+        public InMemoryPeopleRepo()
+        {
+            if (people.Count == 0)
+            {
+                Create(new Person {Name = "Björn Larsson", City = "Karlskrona", Phone = "0733-620444" });
+                Create(new Person { Name = "Evert Larsson", City = "Karlskrona", Phone = "0733-441213" });
+                Create(new Person { Name = "Cam", City = "Sorcha" });
+                Create(new Person { Name = "Victoria", City = "London", Phone = "+44625455520" });
+            }
+        }
         public Person Create(Person person)
         {
             if (!String.IsNullOrWhiteSpace(person.Name))

@@ -1,0 +1,60 @@
+﻿@model List<Person>
+
+
+@{
+    ViewData["Title"] = "View PeopleList";
+}
+
+<h1>People View</h1>
+<form action="/Home/ViewPeople" method="post">
+    <div class="form-inline float-sm-right">
+        <input type="text" class="form-control" name="search" id="search" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </div>
+</form>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    City
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (Person person in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => person.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => person.City)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", person)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No People in the list!"</p>
+}
+@if (ViewBag.Message != "Search")
+{
+    <a asp-action="ViewPeople">Show All</a>
+}

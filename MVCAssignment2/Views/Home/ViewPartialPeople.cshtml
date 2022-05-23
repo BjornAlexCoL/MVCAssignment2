@@ -1,0 +1,41 @@
+﻿@model List<Person>
+
+@{
+    ViewData["Title"] = "People Partial View";
+}
+<h1>Partial View</h1>
+<form action="/Home/ViewPartialPeople" method="post">
+    <div class="form-inline float-sm-right">
+        <input type="text" class="form-control" name="search" id="search" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </div>
+</form>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div>
+    <div>
+        <Div class="divcol">Name</Div>
+        <Div class="divcol">City</Div>
+        <div></div>
+    </div>
+</div>
+<div>
+    @if (Model != null)
+    {
+
+        @foreach (Person person in Model)
+        {
+            <partial name="~/Views/Shared/_PartialView.cshtml" model="person" />
+
+            @Html.ActionLink("Details", "Details", person);
+        }
+    }
+    else
+    {
+        <p>No People in the list!</p>
+    }
+</div>
+
