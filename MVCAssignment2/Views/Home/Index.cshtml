@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MVCAssignment2.Models.Person>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", item) |
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <p>No People in the list!</p>
+        }
+    </tbody>
+</table>
+@if (ViewBag.Message != "Search")
+{
+    <a asp-action="Index">Show All</a>
+}
