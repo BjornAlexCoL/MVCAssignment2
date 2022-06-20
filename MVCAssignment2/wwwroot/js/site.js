@@ -52,7 +52,7 @@ $("#btnDelete").click(() => {
                 DisplayHtml("Record Does Not Exist");
                 return;
             }
-            if (confirm('Are you sure you want to delete record no: '+ res.id+'.' +res.name+', '+res.city+' '+res.phone) && res!=null) {
+            if (confirm('Are you sure you want to delete record no: '+ res.id+'. ' +res.name+', '+res.city+' '+res.phone) && res!=null) {
                 $.ajax({
                     type: "POST", url: "/Ajax/Delete?id=" + personId, success: () => {
                         DisplayHtml("Record Deleted!");
