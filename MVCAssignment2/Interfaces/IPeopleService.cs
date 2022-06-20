@@ -6,7 +6,7 @@ using MVCAssignment2.Models;
 
 namespace MVCAssignment2.Interfaces
 {
-    interface IPeopleService
+    public interface IPeopleService
     {
         Person Add(CreatePersonViewModel person);
         List<Person> All();

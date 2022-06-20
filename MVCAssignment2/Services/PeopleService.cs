@@ -10,7 +10,12 @@ namespace MVCAssignment2.Services
     public class PeopleService: IPeopleService
 
     {
-        static InMemoryPeopleRepo inMemoryPeopleRepo=  new InMemoryPeopleRepo();
+        private readonly IPeopleRepo inMemoryPeopleRepo;
+
+        public PeopleService(IPeopleRepo peopleRepo)
+        {
+            inMemoryPeopleRepo = peopleRepo;
+        }
 
         public Person Add(CreatePersonViewModel person)
         {

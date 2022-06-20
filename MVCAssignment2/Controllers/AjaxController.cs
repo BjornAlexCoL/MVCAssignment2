@@ -1,18 +1,17 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using MVCAssignment2.Interfaces;
 using MVCAssignment2.Models;
-using MVCAssignment2.Services;
 
 namespace MVCAssignment2.Controllers
 {
     public class AjaxController : Controller
     {
-        PeopleService peopleService = new PeopleService();
-
+        private readonly IPeopleService peopleService;
+        public AjaxController(IPeopleService peopServ)
+        {
+            peopleService = peopServ;
+        }
         public IActionResult Index()
         {
             return View();

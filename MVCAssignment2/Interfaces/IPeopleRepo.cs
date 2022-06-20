@@ -6,7 +6,7 @@ using MVCAssignment2.Models;
 
 namespace MVCAssignment2.Interfaces
 {
-    interface IPeopleRepo
+    public interface IPeopleRepo
     {
         Person Create(Person person);
         List<Person> Read();

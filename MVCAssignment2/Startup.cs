@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MVCAssignment2.Interfaces;
+using MVCAssignment2.Services;
 
 namespace MVCAssignment2
 {
@@ -23,6 +25,8 @@ namespace MVCAssignment2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IPeopleRepo, InMemoryPeopleRepo>();
+            services.AddScoped<IPeopleService, PeopleService>();
             services.AddControllersWithViews();
         }
 
