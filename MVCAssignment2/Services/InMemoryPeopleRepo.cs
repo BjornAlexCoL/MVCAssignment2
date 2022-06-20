@@ -16,10 +16,10 @@ namespace MVCAssignment2.Services
         {
             if (people.Count == 0)
             {
-                Create(new Person {Name = "Björn Larsson", City = "Karlskrona", Phone = "0733-620444" });
-                Create(new Person { Name = "Evert Larsson", City = "Karlskrona", Phone = "0733-441213" });
+                Create(new Person {Name = "Lina", City = "Barcelona", Phone = "0000-00000" });
+                Create(new Person { Name = "Summer", City = "Karlskrona", Phone = "04455-55555" });
                 Create(new Person { Name = "Cam", City = "Sorcha" });
-                Create(new Person { Name = "Victoria", City = "London", Phone = "+44625455520" });
+                Create(new Person { Name = "Victoria", City = "London", Phone = "+00-000-00000000" });
             }
         }
         public Person Create(Person person)
