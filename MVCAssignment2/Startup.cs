@@ -5,11 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MVCAssignment2.Interfaces;
 using MVCAssignment2.Services;
+using MVCAssignment2.Data;
+using MVCAssignment2.Models;
 
 namespace MVCAssignment2
 {
@@ -25,7 +28,11 @@ namespace MVCAssignment2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IPeopleRepo, InMemoryPeopleRepo>();
+
+
+            services.AddDbContext<PeopleDbContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+ 
+            services.AddScoped<IPeopleRepo, DatabasePeopleRepo>();
             services.AddScoped<IPeopleService, PeopleService>();
             services.AddControllersWithViews();
         }
