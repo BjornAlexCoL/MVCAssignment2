@@ -17,7 +17,9 @@ namespace MVCAssignment2.Models
         public string Name { get; set; }
         [StringLength(20)]
         public string Phone { get; set; }
-        [StringLength(50)]
-        public string City { get; set; }
+        public Nullable<int> CityId { get; set; }
+
+        public virtual City City { get;set; }
+
     }
 }

@@ -41,9 +41,9 @@ namespace MVCAssignment2.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(string name, string phone, string city)
+        public IActionResult Create(string name, string phone, int cityId)
         {
-            peopleService.Add(new Models.CreatePersonViewModel() { Name = name, Phone = phone, City = city });
+            peopleService.Add(new Models.CreatePersonViewModel() { Name = name, Phone = phone,  CityId= cityId });
             return RedirectToAction("ViewPeople", "home");
         }
         public IActionResult Delete(Person person)

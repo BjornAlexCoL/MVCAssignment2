@@ -34,6 +34,8 @@ namespace MVCAssignment2
  
             services.AddScoped<IPeopleRepo, DatabasePeopleRepo>();
             services.AddScoped<IPeopleService, PeopleService>();
+            services.AddScoped<ICitiesRepo, DbCitiesRepo>();
+            services.AddScoped<ICountriesRepo, DbCountriesRepo>();
             services.AddControllersWithViews();
         }
 

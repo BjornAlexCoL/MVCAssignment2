@@ -11,6 +11,7 @@ namespace MVCAssignment2.Models
     
     public class DatabasePeopleRepo : IPeopleRepo
     {
+       
         private readonly PeopleDbContext peopleDb;
         public DatabasePeopleRepo(PeopleDbContext pDb)
         {
@@ -33,7 +34,7 @@ namespace MVCAssignment2.Models
 
         public List<Person> Read()
         {
-            return peopleDb.People.ToList();
+            return peopleDb.People.Include(p=>p.City).ThenInclude(p=>p.Country).ToList(); //Include(p => p.City).
         }
 
         public Person Read(int id)

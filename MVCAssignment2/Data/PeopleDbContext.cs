@@ -9,5 +9,7 @@ namespace MVCAssignment2.Data
         { }
 
         public DbSet<Person> People { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<Country> Countries { get; set; }
     }
 }

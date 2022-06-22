@@ -9,6 +9,7 @@ namespace MVCAssignment2.Models
     {
         public string Name { get; set; }
         public string Phone { get; set; }
-        public string City { get; set; }
+        public int CityId { get; set; }
+
     }
 }
